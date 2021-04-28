@@ -276,7 +276,6 @@ def imprimirEstadisiticas():
     print (total)
     print ("Accion"+ " "+ str(accion))
     print ("Infantil"+ " "+ str(infantil))
-    print ("Humor Negro"+ " "+ str(humorNegro))
     print ("Terror"+ " "+ str(terror))      
     print ("Comedia Romantica"+ " "+ str(comediaRomantica))
 
