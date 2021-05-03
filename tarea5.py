@@ -1,3 +1,7 @@
+#tarea 5
+#Jean Carlos Santacruz
+#Id: 8962275
+
 #pregunta 1
 def guardarNumeros (l,r):
     f= []
@@ -7,24 +11,24 @@ def guardarNumeros (l,r):
     return f
 
 def leerImprimir ():
-    veces= int(input())
+    repeticiones= int(input())
     i= 0
-    while i<veces:
-        p= int(input())
-        q= int(input())
-        ans= guardarNumeros(p,q)
+    while i<repeticiones:
+        l= int(input())
+        r= int(input())
+        ans= guardarNumeros(l,r)
         i+=1
         print (ans)
     
-# leerImprimir()
+#leerImprimir()
 
 #pregunta 2 
-def lista_Tupla (l):
+def lista_Tupla (l): 
     cont= 0
-    maximo= len(l)
+    tamList= len(l)
     menor= l[cont]
     mayor= l[cont]  
-    while cont < maximo:
+    while cont < tamList:
         n = l[cont]
         if n<menor:
             menor= n
@@ -35,48 +39,45 @@ def lista_Tupla (l):
     return tupla
 
 def leerImprimir():
-    veces= int(input("veces"))
+    repeticiones= int(input())
     cont= 0
     i= 0
     l= []
-    while i<veces:
+    while i<repeticiones:
         i+=1
-        d= int(input("digitos"))
-        while cont<d:
-            numero= int(input("numero"))
+        tamaño= int(input())
+        while cont<tamaño:
+            numero= int(input())
             l.append (numero)
             cont+=1
-
     ans= lista_Tupla(l)
     print (ans)
-        
 
+    
+    
 # leerImprimir()
 
 #pregunta 3
-def revertir (l):
-    tope= len(l)
-    newL= []    
-    while tope!= 0:
-        newL.append(l[tope-1])
-        tope-=1
-    print (newL)
-
-def leerImprimir ():
+def reverse ():
     cont= 0
     i= 0
     lis= []
-    n= int(input("veces: "))
-    while cont < n: 
+    repeticiones= int(input())
+    while cont < repeticiones: 
         cont+=1
-        digitos= int(input("cantidad de digitos: "))
-        while i<digitos:
-            d= int(input("numero: "))
-            lis.append (d)
+        tamaño= int(input())
+        while i<tamaño:
+            numero= int(input())
+            lis.append (numero)
             i+=1
+        lisFinal= []    
+        while tamaño!= 0:
+            lisFinal.append(lis[tamaño-1])
+            tamaño-=1
+    return lisFinal
     x= revertir(lis)
 
-# leerImprimir()
+# print(reverse())
 
 #pregunta 4
 def cuadrantes(lx,ly):
@@ -87,46 +88,43 @@ def cuadrantes(lx,ly):
     while i<=maximo:
         if lx[cont]>0 and ly[cont]>0:
             lc.append (1)
-            
-            
+        
         if lx[cont]<0 and ly[cont]>0:
             lc.append (2)
-            
-            
+              
         if lx[cont]<0 and ly[cont]<0:
             lc.append (3)
-            
-            
+             
         if lx[cont]>0 and ly[cont]<0:
             lc.append (4)
             
         i+= 1
-            
-
+    
     return lc
 
 def leerImprimir():
-    veces= int(input())
+    repeticiones= int(input())
     cont= 0
     i= 0
     l1= []
     l2= []
-    while i<veces:
+    while i<repeticiones:
         i+=1
         d= int(input("digitos"))
         while cont<d:
             numero= float(input("numero"))
             l1.append (numero)
-
+            cont+=1
         d= int(input("digitos"))
         cont= 0
         while cont<d:
             numero= float(input("numero"))
             l2.append (numero)
-
+            cont+=1
         ans= cuadrantes(l1,l2)
         print (ans)
-leerImprimir()
+
+# leerImprimir()
 
 
 #pregunta 5
@@ -148,7 +146,6 @@ def imprimirNumeros():
                 print (i)
         r+=1
         t+=1 
-
 
 
 # imprimirNumeros()
@@ -199,12 +196,12 @@ def mezclar(l1,l2):
 
 
 def leerImprimir():
-    veces= int(input("veces"))
+    repeticiones= int(input("repeticiones"))
     cont= 0
     i= 0
     list1= []
     list2= []
-    while cont<veces:
+    while cont<repeticiones:
         cont+=1
         d= int(input("digitos"))
         while i<d:
@@ -276,44 +273,135 @@ def imprimirEstadisiticas():
     print (total)
     print ("Accion"+ " "+ str(accion))
     print ("Infantil"+ " "+ str(infantil))
+    print ("Humor Negro"+ " "+ str(humorNegro))
     print ("Terror"+ " "+ str(terror))      
     print ("Comedia Romantica"+ " "+ str(comediaRomantica))
 
 # imprimirEstadisiticas()
 
 #pregunta 9     
-def problema591 ():
-    n= int(input("numero de pilas: "))
+def problema591 (n,hi):
+    sumaDigitos= 0
     cont= 0
-    i= 0
+    while cont<len(hi):
+        sumaDigitos+= hi[cont]
+        cont+=1
+    tamañoPila= sumaDigitos//len(hi)
+    cont= 0
+    residuo= 0
     k= 0
-    l= []
-    total= 0
-    if n!=0:
-        while i<n:
-            b= int(input("numero de bloques: "))
-            l.append(b)
-            total+=b
-            i+=1
-        alturaMaxima= total//n
-        tope= len(l)
-        a= 0
-    
-        while cont<tope:
-            cont+=1
-            while l[a]>alturaMaxima:
-                l[a]-=1
-                k+=1
-            while l[a]<alturaMaxima:
-                l[a]+=1
-                k-=1
-            a+=1
-    
-        print (k)
+    while cont<len(hi):
+        if hi[cont]<tamañoPila:
+            residuo-=tamañoPila-hi[cont]
+            k+=1
+        if hi[cont]>tamañoPila:
+            residuo+=hi[cont]-tamañoPila
+            k+=1
+        cont+=1
+    return k
 
+# problema591()
+
+def leerImprimir():
+    ejecucion= 1
+    n= int(input("numero de pilas: "))
+    while n!= 0:
+        hi= []
+        numero= input("numero str: ").split ()
+        cont= 0
+        cant= len(numero)
+        while cont<cant:
+            hi.append (int(numero[cont]))
+            cont+=1
+        x= problema591(n,hi)
+        print ("set #"+str(ejecucion))
+        ejecucion+=1
+        print ("The minimum number of moves is "+ str(x))
+        n= int(input("numero de pilas: "))
         
 
-
-                
-# problema591()
+# leerImprimir()  
+def problema10260 ():
+    palabra= input("digite una palabra: ")
+    cont= 0
+    i= 1
+    maximo= len(palabra)
+    bloque1= ["B", "F", "P","V"]
+    bloque2= ["C", "G", "J", "K", "Q", "S", "X", "Z"]
+    bloque3= ["D", "T"]
+    bloque4= ["L"]
+    bloque5= ["M", "N"]
+    bloque6= ["R"]
+    while i < maximo:
+        if cont<maximo-1 and palabra[cont]== palabra[cont+1]:
+            cont+=1
+        
+        if palabra[cont]== "B" or palabra[cont]== "F" or palabra[cont]== "P" or palabra[cont]== "V":
+            print ("1", end= "")
+        if palabra[cont]== "C" or palabra[cont]== "G" or palabra[cont]== "J" or palabra[cont]== "K" or palabra[cont]== "Q" or palabra[cont]== "S" or palabra[cont]== "X" or palabra[cont]== "Z":
+            print ("2", end= "")
+        if palabra[cont]== "D" or palabra[cont]== "T":
+            print ("3", end= "")
+        if palabra[cont]== "L":
+            print ("4", end= "")
+        if palabra[cont]== "M" or palabra[cont]== "N":
+            print ("5", end= "")
+        if palabra[cont]== "R":
+            print ("6", end= "")
+        cont+=1
+        i+=1
+        if i== "R" and palabra[lugar]!= i:
+                cont= 0
+                lugar+=1
+    
+    
+# problema10260()
+def soundex ():
+    bloque1= [["B", "F", "P","V"],"1"]
+    bloque2= [["C", "G", "J", "K", "Q", "S", "X", "Z"],"2"]
+    bloque3= [["D", "T"],"3"]
+    bloque4= [["L"],"4"]
+    bloque5= [["M", "N"],"5"]
+    bloque6= [["R"],"6"]
+    palabra= input("digite la palabra: ")
+    cont= 1
+    respuesta= ""
+    tope= len(palabra)
+    j= 0
+    for letra in palabra:
+        if letra in bloque1[0]:
+            if j+1==tope:
+                respuesta+= bloque1[1]
+            elif not(palabra[j+1] in bloque1[0]):
+                respuesta+= bloque1[1]
+        if letra in bloque2[0]:
+            if j+1==tope:
+                respuesta+= bloque2[1]
+            elif not(palabra[j+1] in bloque2[0]):
+                respuesta+= bloque2[1]
+        if letra in bloque3[0]:
+            if j+1==tope:
+                respuesta+= bloque3[1]
+            elif not(palabra[j+1] in bloque3[0]):
+                respuesta+= bloque3[1]
+        if letra in bloque4[0]:
+            if j+1==tope:
+                respuesta+= bloque4[1]
+            elif not(palabra[j+1] in bloque4[0]):
+                respuesta+= bloque4[1]
+        if letra in bloque5[0] :
+            if j+1==tope:
+                respuesta+= bloque5[1]
+            elif not(palabra[j+1] in bloque5[0]):
+                respuesta+= bloque5[1]
+        if letra in bloque6[0]:
+            if j+1==tope:
+                respuesta+= bloque6[1]
+            elif not(palabra[j+1] in bloque6[0]):
+                respuesta+= bloque6[1]
+        if j<len(palabra)-1:
+            j+=1
+    print (respuesta)
+        
+soundex()
 
