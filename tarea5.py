@@ -40,21 +40,19 @@ def lista_Tupla (l):
 
 def leerImprimir():
     repeticiones= int(input())
-    cont= 0
     i= 0
-    l= []
     while i<repeticiones:
         i+=1
         tamaño= int(input())
+        l= []
+        cont= 0
         while cont<tamaño:
             numero= int(input())
             l.append (numero)
             cont+=1
-    ans= lista_Tupla(l)
-    print (ans)
+        ans= lista_Tupla(l)
+        print (ans)
 
-    
-    
 # leerImprimir()
 
 #pregunta 3
@@ -97,28 +95,27 @@ def cuadrantes(lx,ly):
              
         if lx[cont]>0 and ly[cont]<0:
             lc.append (4)
-            
+        cont+=1
         i+= 1
     
     return lc
 
 def leerImprimir():
-    repeticiones= int(input())
-    cont= 0
+    repeticiones= int(input("repeticiones: "))
     i= 0
-    l1= []
-    l2= []
     while i<repeticiones:
+        cont= 0
         i+=1
-        d= int(input("digitos"))
+        l1= []
+        l2= []
+        d= int(input("digitos: "))
         while cont<d:
-            numero= float(input("numero"))
+            numero= float(input("numero: "))
             l1.append (numero)
             cont+=1
-        d= int(input("digitos"))
         cont= 0
         while cont<d:
-            numero= float(input("numero"))
+            numero= float(input("numero: "))
             l2.append (numero)
             cont+=1
         ans= cuadrantes(l1,l2)
@@ -144,13 +141,14 @@ def imprimirNumeros():
                 print (i, end= ""+ ", ")
             if i == t*n:
                 print (i)
+        cont+=1
         r+=1
         t+=1 
 
-
 # imprimirNumeros()
+
 #pregunta 6
-def determinarRegalos (m):
+def determinarRegalos (presupuesto):
     l1= ["flores",100000]
     l2= ["chocolates", 40000]
     l3= ["chocolatina Jet", 1000]
@@ -158,92 +156,78 @@ def determinarRegalos (m):
     l5= ["viaje", 2000000]
     l6= ["empanadas", 2000]
     l7= ["pony malta con pandebono", 3000]
-    l= [l1,l2,l3,l4,l5,l5,l6,l7]
-    newL= []
-    i= 0
+    l= [l1,l2,l3,l4,l5,l6,l7]
+    listaPre= []
     cont= 0
     maximo= len(l)
-    while i<maximo:
-        i+=1
-        ln= l [cont]
-        if ln [1]<=m:
-            newL.append(ln [0])
-    print (newL)
+    while cont<maximo:
+        posicion= l [cont]
+        if posicion [1]<=presupuesto:
+            listaPre.append(posicion [0])
+        cont+=1
+    print (listaPre)
 
-# determinarRegalos(10000)
+# determinarRegalos(2000000)
 #pregunta 7
-def mezclar(l1,l2):
-    m1= len(l1)
-    m2= len(l2)
-    cont= 0
-    i= 0
-    f= m2//2
-    newL= []
-    dato1= l1[cont]
-    dato2= l2[i]
-    while cont<m1 or i<m2:
-        if cont<m1:
-            newL.append (l1[cont])
-            cont+=1
-        if f<m2:
-            newL.append (l2[i])
-            i+=1
-            f+=1
-            if i<m2:
-                newL.append (l2[i])
-                i+=1
-    print (newL)
-
+def mezclar(list1,list2):
+    maximoL1= len(list1)
+    maximoL2= len(list2)
+    cont1= 0
+    cont2= 0
+    lista= []
+    while cont1<maximoL1 or cont2<maximoL2:
+        if cont1<maximoL1:
+            lista.append (list1[cont1])
+            cont1+=1
+        if cont2<maximoL2:
+            lista.append (list2[cont2])
+            cont2+=1
+            if cont2<maximoL2:
+                lista.append (list2[cont2])
+                cont2+=1
+    return lista
 
 def leerImprimir():
     repeticiones= int(input("repeticiones"))
     cont= 0
-    i= 0
-    list1= []
-    list2= []
     while cont<repeticiones:
         cont+=1
-        d= int(input("digitos"))
-        while i<d:
+        tamañoLista= int(input("digitos"))
+        i= 0
+        list1= []
+        list2= []
+        while i<tamañoLista:
             numero= int(input("numero"))
             list1.append (numero)
             i+=1
-        d= int(input("digitos"))
+        tamañoLista= int(input("digitos"))
         i=0
-        while i<d:
+        while i<tamañoLista:
             numero= int(input("numero"))
             list2.append (numero)
             i+=1
-    x= mezclar(list1,list2)
-    print (x)
+        funcion= mezclar(list1,list2)
+        print (funcion)
 # leerImprimir()
 
 #pregunta 8
-def fracasos ():
-    l = [["Erase una vez en Hollywood", "Quentin Tarantino","Humor Negro", 2016, 10, 374, ["Leonardo Di Caprio", "Brad Pitt", "Margot Robbie"]], ["Avengers Endgame",
-    "Hermanos Russo", "Acción", 2019, 356, 2800, ["Mark Ruffalo", "Robert Downey Jr.", "Chris Evans","Chris Hemsworth", "Scarlett Johansson"]], ["The Ladykillers", 
-    "Alexander Mackendrick", "Humor Negro", 1955, 15, 10, ["Alec Guinness", "Herbert Lom", "Peter Sellers", "Cecil Parker"]],["50 First Dates", "Peter Segal",
-    "Comedia Romántica", 2004, 75, 120, ["Adam Sandler", "Drew Barrymore", "Rob Schneider"]]]
+def fracasos (l):
     lFracasados= []
     cont= 0
     maximo= len(l)
-    maximo-=1
-    f= 0
-    while f<maximo:
-        f+=1
+    while cont<maximo:
         if (l[cont][4])>(l[cont][5]):
             lFracasados.append (l[cont][0])
-            cont+=1
+        cont+=1
 
-    print (lFracasados)
+    return lFracasados
 
-# fracasos()
+# print (fracasos([["Erase una vez en Hollywood", "Quentin Tarantino","Humor Negro", 2016, 90, 374, ["Leonardo Di Caprio", "Brad Pitt", "Margot Robbie"]], ["Avengers Endgame",
+#     "Hermanos Russo", "Acción", 2019, 356, 2800, ["Mark Ruffalo", "Robert Downey Jr.", "Chris Evans","Chris Hemsworth", "Scarlett Johansson"]], ["The Ladykillers", 
+#     "Alexander Mackendrick", "Humor Negro", 1955, 2, 10, ["Alec Guinness", "Herbert Lom", "Peter Sellers", "Cecil Parker"]],["50 First Dates", "Peter Segal",
+#     "Comedia Romántica", 2004, 75, 120, ["Adam Sandler", "Drew Barrymore", "Rob Schneider"]]]))
 
-def imprimirEstadisiticas():
-    l = [["Erase una vez en Hollywood", "Quentin Tarantino","Humor Negro", 2016, 90, 374, ["Leonardo Di Caprio", "Brad Pitt", "Margot Robbie"]], ["Avengers Endgame",
-    "Hermanos Russo", "Acción", 2019, 356, 2800, ["Mark Ruffalo", "Robert Downey Jr.", "Chris Evans","Chris Hemsworth", "Scarlett Johansson"]], ["The Ladykillers", 
-    "Alexander Mackendrick", "Humor Negro", 1955, 2, 10, ["Alec Guinness", "Herbert Lom", "Peter Sellers", "Cecil Parker"]],["50 First Dates", "Peter Segal",
-    "Comedia Romántica", 2004, 75, 120, ["Adam Sandler", "Drew Barrymore", "Rob Schneider"]]]
+def imprimirEstadisiticas(l):
     accion= 0
     infantil= 0
     humorNegro= 0
@@ -254,7 +238,6 @@ def imprimirEstadisiticas():
     cont= 0
     maximo= len(l)
     while f<maximo:
-        f+=1
         if l[cont][2]== "Acción":
             accion+=(l[cont][5])
 
@@ -270,6 +253,7 @@ def imprimirEstadisiticas():
         if l[cont][2]== "Comedia Romántica":
             comediaRomantica+=(l[cont][5])
         cont+=1
+        f+=1
     print (total)
     print ("Accion"+ " "+ str(accion))
     print ("Infantil"+ " "+ str(infantil))
@@ -277,7 +261,10 @@ def imprimirEstadisiticas():
     print ("Terror"+ " "+ str(terror))      
     print ("Comedia Romantica"+ " "+ str(comediaRomantica))
 
-# imprimirEstadisiticas()
+# imprimirEstadisiticas( [["Erase una vez en Hollywood", "Quentin Tarantino","Humor Negro", 2016, 90, 374, ["Leonardo Di Caprio", "Brad Pitt", "Margot Robbie"]], ["Avengers Endgame",
+#     "Hermanos Russo", "Acción", 2019, 356, 2800, ["Mark Ruffalo", "Robert Downey Jr.", "Chris Evans","Chris Hemsworth", "Scarlett Johansson"]], ["The Ladykillers", 
+#     "Alexander Mackendrick", "Humor Negro", 1955, 2, 10, ["Alec Guinness", "Herbert Lom", "Peter Sellers", "Cecil Parker"]],["50 First Dates", "Peter Segal",
+#     "Comedia Romántica", 2004, 75, 120, ["Adam Sandler", "Drew Barrymore", "Rob Schneider"]]])
 
 #pregunta 9     
 def problema591 (n,hi):
@@ -300,8 +287,6 @@ def problema591 (n,hi):
         cont+=1
     return k
 
-# problema591()
-
 def leerImprimir():
     ejecucion= 1
     n= int(input("numero de pilas: "))
@@ -321,41 +306,8 @@ def leerImprimir():
         
 
 # leerImprimir()  
-def problema10260 ():
-    palabra= input("digite una palabra: ")
-    cont= 0
-    i= 1
-    maximo= len(palabra)
-    bloque1= ["B", "F", "P","V"]
-    bloque2= ["C", "G", "J", "K", "Q", "S", "X", "Z"]
-    bloque3= ["D", "T"]
-    bloque4= ["L"]
-    bloque5= ["M", "N"]
-    bloque6= ["R"]
-    while i < maximo:
-        if cont<maximo-1 and palabra[cont]== palabra[cont+1]:
-            cont+=1
-        
-        if palabra[cont]== "B" or palabra[cont]== "F" or palabra[cont]== "P" or palabra[cont]== "V":
-            print ("1", end= "")
-        if palabra[cont]== "C" or palabra[cont]== "G" or palabra[cont]== "J" or palabra[cont]== "K" or palabra[cont]== "Q" or palabra[cont]== "S" or palabra[cont]== "X" or palabra[cont]== "Z":
-            print ("2", end= "")
-        if palabra[cont]== "D" or palabra[cont]== "T":
-            print ("3", end= "")
-        if palabra[cont]== "L":
-            print ("4", end= "")
-        if palabra[cont]== "M" or palabra[cont]== "N":
-            print ("5", end= "")
-        if palabra[cont]== "R":
-            print ("6", end= "")
-        cont+=1
-        i+=1
-        if i== "R" and palabra[lugar]!= i:
-                cont= 0
-                lugar+=1
-    
-    
-# problema10260()
+
+# pregunta10()
 def soundex ():
     bloque1= [["B", "F", "P","V"],"1"]
     bloque2= [["C", "G", "J", "K", "Q", "S", "X", "Z"],"2"]
@@ -402,6 +354,6 @@ def soundex ():
         if j<len(palabra)-1:
             j+=1
     print (respuesta)
-        
+
 soundex()
 
