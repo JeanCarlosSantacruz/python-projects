@@ -1,20 +1,41 @@
-def reverse ():
+#Tarea 6
+#Jean Carlos Santacruz
+#8962275
+
+
+    
+def imprimirPotencias ():
+    n= int(input("digite un numero: "))
     cont= 0
-    i= 0
-    lis= []
-    repeticiones= int(input())
-    while cont < repeticiones: 
+    while 2**cont <= n:
+        print (2**cont)
         cont+=1
-        tamaño= int(input())
-        while i<tamaño:
-            numero= int(input())
-            lis.append (numero)
-            i+=1
-        lisFinal= []    
-        while tamaño!= 0:
-            lisFinal.append(lis[tamaño-1])
-            tamaño-=1
-    return lisFinal
-    x= revertir(lis)
+
+imprimirPotencias()
+
+def emoogle ():
+    ejecucion= 1
+    n= int(input("cantidad de numeros: "))
+    caso= 1
+    while n!= 0:
+        cont1= 0
+        cont2= 0
+        contt= 0
+        numero= input("numeros: ").split ()
+        lista= []
+        while contt < len(numero):
+            lista.append (int(numero[contt]))
+            contt+= 1
+        for i in range (len(lista)):
+            if lista[i] != 0:
+                cont1+= 1
+            if lista[i] == 0:
+                cont2+= 1
+        residuo= cont1-cont2
+        print ("case "+ str(caso)+ ": "+ str(residuo) )
+        n= int(input("cantidad de numeros: "))
+        caso+= 1
+         
+# emoogle()
 
 
