@@ -4,8 +4,6 @@
 
 #pregunta 1
 
-#pregunta 1
-
 def imprimirNumeros():
     cont= 1
     while (cont<=100):
@@ -87,7 +85,7 @@ def obtenerPuntosTorneo(torneo, equipoBusqueda):
 # ["Junior", 2, "America", 3],
 # ["Santafe", 2, "Junior", 1],
 # ["Cali", 2, "Junior", 2],
-# ["America", 1, "Santafe", 1]],"America"))
+# ["America", 1, "Santafe", 1]],"Cali"))
 
 #pregunta 5
 def imprimir (lista):
@@ -122,7 +120,7 @@ def leerImprimir ():
         cont+= 1
         x= imprimir(lista)
 
-# leerImprimir()
+leerImprimir()
 
 
 
@@ -142,4 +140,4 @@ def obtenerMatriz (n):
         cont+=1
     return matriz
 
-print(obtenerMatriz(5))
+# print(obtenerMatriz(5))
