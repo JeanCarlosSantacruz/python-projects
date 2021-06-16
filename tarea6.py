@@ -105,6 +105,7 @@ def obtenerValor (disp,i,j):
         if tupla[0]==j:
             ans= tupla[1]
     return ans
+    
 
 def leerImprimir ():
     repeticiones= int(input())
@@ -173,8 +174,6 @@ def leerImprimir():
         print (comun)
         
 # leerImprimir ()
-
-
 
 
 
