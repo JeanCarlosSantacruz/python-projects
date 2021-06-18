@@ -77,11 +77,9 @@ def cuadrantes(lx,ly):
             lc.append (1)
         
         if lx[cont]<0 and ly[cont]>0:
-            lc.append (2)
-              
+            lc.append (2) 
         if lx[cont]<0 and ly[cont]<0:
             lc.append (3)
-             
         if lx[cont]>0 and ly[cont]<0:
             lc.append (4)
         cont+=1

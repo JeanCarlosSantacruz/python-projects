@@ -36,16 +36,15 @@ def crearMatrizDispersa ():
 
 # crearMatrizDispersa ()
 
-def reconstruirMatriz (disp):
-    matriz= []
-    for colum in range (len(disp)):
-        lista= []
-        for filas in range (len(disp)):
-            lista.append (0)
-        matriz.append (lista)
+
+def reconstruirMatriz(dis):
+    matriz = [0 * (len(dis)) for i in range(len(dis))]
+    for i in range(len(dis)):
+        for j  in (dis):
+            matriz[i].insert(j[0],j[1])
     print (matriz)
 
-
+reconstruirMatriz( [[(0, 1), (5, 4), (7, 5)],[(6, 4), (7, 7)],[(0, 2), (1, 2), (4, 9), (6, 1)],[],[(2, 8), (3, 1), (5, 7)],[(0, 3), (5, 6), (7, 2)],[(0, 4), (1, 4), (2, 7)],[(1, 9), (3, 8), (5, 7), (7, 6)]])
 
 
 #pregunta 3
