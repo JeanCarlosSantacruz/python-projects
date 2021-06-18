@@ -6,3 +6,5 @@ for veces in range (repeticiones):
     v= int(input("valor: "))
     recibo+= "el"+ str(c), "vale"
     print (recibo)
+
+#hola :) 
